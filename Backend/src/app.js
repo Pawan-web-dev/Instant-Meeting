@@ -12,6 +12,12 @@ import cors from "cors";
 import userRoutes from "./routes/user.routes.js"
 const app = express();
 
+app.use(cors({
+    origin: "*",  
+    methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
+    allowedHeaders: "Content-Type, Authorization"
+}));
+
 const server=createServer(app);
 const io=connectToSocket(server)
 
