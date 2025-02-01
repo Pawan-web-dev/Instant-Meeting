@@ -2,11 +2,14 @@ import { createContext, useContext, useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import httpStatus from "http-status";
+import dotenv from "dotenv"
+
+dotenv.config()
 
 export const AuthContext = createContext({});
 
 const client = axios.create({
-  baseURL: "http://localhost:8000/api/v1/users",
+  baseURL: `${process.env.REACT_APP_BACKEND_BASEURL}/api/v1/users`,
 });
 
 export const AuthProvider = ({ children }) => {
