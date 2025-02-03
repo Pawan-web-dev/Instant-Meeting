@@ -12,11 +12,9 @@ import cors from "cors";
 import userRoutes from "./routes/user.routes.js"
 const app = express();
 
-app.use(cors({
-    origin: "*",  
-    methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
-    allowedHeaders: "Content-Type, Authorization"
-}));
+
+// Allow only the frontend URL to access the backend
+app.use(cors({ origin: "https://instant-meeting-frontend1.vercel.app/" }));
 
 const server=createServer(app);
 const io=connectToSocket(server)
