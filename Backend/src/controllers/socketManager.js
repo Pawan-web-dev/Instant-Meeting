@@ -10,10 +10,10 @@ export const connectToSocket = (server) => {
         cors: {
             origin: "https://instant-meeting.vercel.app",
             methods: ["GET", "POST"],
-            allowedHeaders: ["*"],
+            // allowedHeaders: ["*"],
             credentials: true
         },
-        transports: ["websocket"]
+        transports: ["websocket","polling"]
 
 
             // cors: {
