@@ -1,12 +1,15 @@
 import { createContext, useContext, useState } from "react";
+
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import httpStatus from "http-status";
 
 
+
 export const AuthContext = createContext({});
 const client = axios.create({
-  baseURL: `${process.env.REACT_APP_API_BASE_URL}/api/v1/users`,
+  baseURL: `${process.env.REACT_APP_API_BASE_URL}/api/v1/users`
+
 });
 
 export const AuthProvider = ({ children }) => {
