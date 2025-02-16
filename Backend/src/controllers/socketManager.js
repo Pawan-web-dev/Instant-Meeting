@@ -7,12 +7,22 @@ let timeOnline = {}
 
 export const connectToSocket = (server) => {
     const io = new Server(server, {
-        cors: {
-            origin: "*",
-            methods: ["GET", "POST"],
-            allowedHeaders: ["*"],
-            credentials: true
-        }
+        // cors: {
+        //     origin: "*",
+        //     methods: ["GET", "POST"],
+        //     allowedHeaders: ["*"],
+        //     credentials: true
+        // }
+
+        
+            cors: {
+                origin: "https://instant-meeting.vercel.app",
+                methods: ["GET", "POST"],
+                credentials: true
+            },
+            transports: ["websocket", "polling"] // ✅ Forces WebSocket & Polling fallback
+        });
+        
     });
 
 
