@@ -8,7 +8,8 @@ import httpStatus from "http-status";
 
 export const AuthContext = createContext({});
 const client = axios.create({
-  baseURL: `${process.env.REACT_APP_API_BASE_URL}/api/v1/users`
+  baseURL: `${process.env.REACT_APP_API_BASE_URL}/api/v1/users`,
+  withCredentials: true
 
 });
 
@@ -33,22 +34,37 @@ export const AuthProvider = ({ children }) => {
       throw e;
     }
   };
-
   const handleLogin = async (username, password) => {
     try {
-      let request = await client.post("/login", {
-        username: username,
-        password: password,
-      });
-      // console.log("data", request)
-      if (request.status === httpStatus.OK) {
-        localStorage.setItem("token", request.data.token); //storing token in client
+      let request = await client.post("/login", { username: username, password: password });
+  
+      if (request && request.data && request.status === httpStatus.OK) {
+        localStorage.setItem("token", request.data.token);
         router("/home");
+      } else {
+        console.error("Unexpected response format", request);
       }
     } catch (e) {
+      console.error("Login error:", e.response ? e.response.data : e);
       throw e;
     }
   };
+  
+  // const handleLogin = async (username, password) => {
+  //   try {
+  //     let request = await client.post("/login", {
+  //       username: username,
+  //       password: password,
+  //     });
+  //     // console.log("data", request)
+  //     if (request.status === httpStatus.OK) {
+  //       localStorage.setItem("token", request.data.token); //storing token in client
+  //       router("/home");
+  //     }
+  //   } catch (e) {
+  //     throw e;
+  //   }
+  // };
 
   const getHistoryOfUser = async () => {
     try {

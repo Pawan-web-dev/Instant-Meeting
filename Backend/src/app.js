@@ -21,11 +21,12 @@ const io=connectToSocket(server)
 app.set("port", (process.env.PORT || 5000))
 
 app.use(
-    cors({
-      origin: "https://instant-meeting.vercel.app", // Allow frontend origin
-      methods: "GET,POST,PUT,DELETE",
-      credentials: true // Allow cookies & authentication headers
-    })
+  cors: {
+    origin: "*",
+    methods: ["GET", "POST","PUT","DELETE"],
+    allowedHeaders: ["*"],
+    credentials: true
+}
   );
   
 app.use(express.json({limit:"40kb", extended:true}))
