@@ -7,12 +7,14 @@
         "use": "@vercel/node"
       }
     ],
+    
     "routes": [
-      {
-        "src": "/(.*)",
-        "dest": "src/app.js"
-      }
-    ]
+    {
+      "src": "/(.*)",
+      "dest": "/src/app.js",
+      "headers": { "Access-Control-Allow-Origin": "*" }
+    }
+  ]
 }
 
 
