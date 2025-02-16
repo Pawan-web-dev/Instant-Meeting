@@ -12,7 +12,8 @@ export const connectToSocket = (server) => {
             methods: ["GET", "POST"],
             allowedHeaders: ["*"],
             credentials: true
-        }
+        },
+        transports: ["websocket"]
 
 
             // cors: {
