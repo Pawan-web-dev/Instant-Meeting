@@ -14,6 +14,8 @@ import ChatIcon from "@mui/icons-material/Chat";
 // import server from '../environment';
 
 const server_url = process.env.REACT_APP_API_BASE_URL;
+console.log(process.env.REACT_APP_API_BASE_URL)
+
 
 var connections = {};
 
@@ -308,8 +310,8 @@ export default function VideoMeetComponent() {
 
   let connectToSocketServer = () => {
     socketRef.current = io.connect(server_url, {  
-      transports: ["websocket", "polling"],  
-      withCredentials: true,
+      // transports: ["websocket", "polling"],  
+      // withCredentials: true,
       secure: false  
   });
 
