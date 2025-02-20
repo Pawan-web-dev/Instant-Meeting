@@ -311,14 +311,7 @@ export default function VideoMeetComponent() {
 
   let connectToSocketServer = () => {
     socketRef.current = io.connect(server_url, {  
-      //  transports: ["websocket"]  ,
-      transports: ["polling"],  // Keep polling to avoid WebSocket failures on Vercel
-    reconnection: true,
-    reconnectionAttempts: 10,
-    reconnectionDelay: 5000,  // Retry every 5 seconds
-    pingInterval: 20000,      // Send ping every 20 seconds
-    pingTimeout: 25000,       // Timeout if no response in 25s
-      // withCredentials: true,
+    
       secure: false  
   });
 

@@ -21,20 +21,15 @@ const io=connectToSocket(server)
 app.set("port", (process.env.PORT || 5000))
 
 
-//   app.use(
-//     cors({
-//       origin: "https://instant-meeting.vercel.app",
-//       methods: "GET, POST, PUT, DELETE, OPTIONS",
-//       credentials: true
-//     }))
 
 // app.options("*", cors()); // Handles preflight requests
 
 app.use(cors());
   // Send a heartbeat to prevent timeout issues
-  setInterval(() => {
-    socket.emit("ping");
-  }, 20000);
+//   setInterval(() => {
+//     socket.emit("ping");
+//   }, 20000);
+
 
   
 app.use(express.json({ limit: "40kb" }));
