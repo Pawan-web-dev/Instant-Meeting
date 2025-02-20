@@ -12,8 +12,9 @@ import ScreenShareIcon from "@mui/icons-material/ScreenShare";
 import StopScreenShareIcon from "@mui/icons-material/StopScreenShare";
 import ChatIcon from "@mui/icons-material/Chat";
 // import server from '../environment';
+import server from "../enviorment";
 
-const server_url = process.env.REACT_APP_API_BASE_URL;
+const server_url = server;
 // console.log(process.env.REACT_APP_API_BASE_URL)
 
 
