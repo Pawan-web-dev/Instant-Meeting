@@ -12,15 +12,11 @@ export const connectToSocket = (server) => {
             methods: ["GET", "POST"],
             allowedHeaders: ["*"],
             credentials: true
-        }
+        },
+        transports: ["polling"],
 
 
-            // cors: {
-            //     origin: "https://instant-meeting.vercel.app",
-            //     methods: ["GET", "POST"],
-            //     credentials: true
-            // },
-            // transports: ["websocket", "polling"] // ✅ Forces WebSocket & Polling fallback
+            
         
         
     });
