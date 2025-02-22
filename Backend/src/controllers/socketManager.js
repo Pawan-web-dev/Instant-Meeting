@@ -13,9 +13,7 @@ export const connectToSocket = (server) => {
             allowedHeaders: ["*"],
             credentials: true
         },
-        // new code  :
-        // transports: ["websocket", "polling"], // Enable both transports
-        allowEIO3: true // Prevents unknown session ID issues
+        
         
 
 
