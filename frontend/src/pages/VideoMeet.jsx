@@ -311,6 +311,10 @@ export default function VideoMeetComponent() {
 
   let connectToSocketServer = () => {
     socketRef.current = io.connect(server_url, {  
+      // new code
+      transports: ["websocket", "polling"], // Enable both
+    allowEIO3: true, // Prevents session ID errors
+    // 
     
       secure: false  
   });

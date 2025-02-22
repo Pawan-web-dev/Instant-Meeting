@@ -1,28 +1,28 @@
 {
-    
   "version": 2,
   "functions": {
-  "src/app.js": {
-    "runtime": "edge"
-  }
-},
+    "src/app.js": {
+      "runtime": "nodejs18.x"
+    }
+  },
   "builds": [
     {
       "src": "src/app.js",
       "use": "@vercel/node"
     }
   ],
-  
   "routes": [
-  {
-    "src": "/(.*)",
-    "dest": "/src/app.js",
-    "headers": { "Access-Control-Allow-Origin": "*" }
-  }
-]
-} 
-
-
-
-
-
+    {
+      "src": "/socket.io/(.*)",
+      "dest": "/src/app.js",
+      "headers": {
+        "Access-Control-Allow-Origin": "*",
+        "Connection": "keep-alive"
+      }
+    },
+    {
+      "src": "/(.*)",
+      "dest": "/src/app.js"
+    }
+  ]
+}
