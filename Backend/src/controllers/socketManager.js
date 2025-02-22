@@ -13,7 +13,7 @@ export const connectToSocket = (server) => {
             allowedHeaders: ["*"],
             credentials: true
         },
-        
+        // 
         
 
 
